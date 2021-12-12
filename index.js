@@ -13,3 +13,14 @@ exports.get = function(event, context, callback) {
 
   callback(null, result);
 };
+
+exports.greeting = function(event, context, callback) {
+  var greeting = {greeting: 'Hello from the Lambdas!'};
+  var result = {
+    statusCode: 200,
+    body: greeting,
+    headers: {'content-type': 'application/json'}
+  };
+
+  callback(null, result);
+};

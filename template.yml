@@ -40,6 +40,22 @@ Resources:
           Properties:
             Path: /
             Method: get
+  GetGreeting:
+    Type: AWS::Serverless::Function
+    Propoerties:
+      FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-GetGreeting'
+      Handler: index.greeting
+      Runtime: nodejs12.x
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /greeting
+            Method: get
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role
