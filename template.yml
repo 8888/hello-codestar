@@ -42,7 +42,7 @@ Resources:
             Method: get
   GetGreeting:
     Type: AWS::Serverless::Function
-    Propoerties:
+    Properties:
       FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-GetGreeting'
       Handler: index.greeting
       Runtime: nodejs12.x
